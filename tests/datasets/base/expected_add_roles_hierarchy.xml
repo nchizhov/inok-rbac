@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <phprbac_roles id="1" lft="0" rght="17" title="root" description="root" />
+    <phprbac_roles id="2" lft="1" rght="8" title="blog" description="Define roles for the Blog" />
+    <phprbac_roles id="3" lft="2" rght="3" title="roles_title_1" description="roles Description 1" />
+    <phprbac_roles id="4" lft="4" rght="5" title="roles_title_2" description="roles Description 2" />
+    <phprbac_roles id="5" lft="6" rght="7" title="roles_title_3" description="roles Description 3" />
+    <phprbac_roles id="6" lft="9" rght="16" title="forum" description="Define roles for the Forums" />
+    <phprbac_roles id="7" lft="10" rght="11" title="roles_title_1" description="roles Description 1" />
+    <phprbac_roles id="8" lft="12" rght="13" title="roles_title_2" description="roles Description 2" />
+    <phprbac_roles id="9" lft="14" rght="15" title="roles_title_3" description="roles Description 3" />
+</dataset>

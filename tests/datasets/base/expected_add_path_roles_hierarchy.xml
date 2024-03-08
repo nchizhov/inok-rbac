@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <phprbac_roles id="1" lft="0" rght="31" title="root" description="root" />
+    <phprbac_roles id="2" lft="1" rght="8" title="roles_1" description="" />
+    <phprbac_roles id="3" lft="2" rght="7" title="roles_2" description="" />
+    <phprbac_roles id="4" lft="3" rght="4" title="roles_3" description="" />
+    <phprbac_roles id="5" lft="5" rght="6" title="roles_4" description="" />
+    <phprbac_roles id="6" lft="9" rght="18" title="roles_12" description="" />
+    <phprbac_roles id="7" lft="10" rght="13" title="roles_13" description="" />
+    <phprbac_roles id="8" lft="11" rght="12" title="roles_14" description="" />
+    <phprbac_roles id="9" lft="14" rght="17" title="roles_15" description="" />
+    <phprbac_roles id="10" lft="15" rght="16" title="roles_11" description="" />
+    <phprbac_roles id="11" lft="19" rght="24" title="roles_23" description="" />
+    <phprbac_roles id="12" lft="20" rght="23" title="roles_24" description="" />
+    <phprbac_roles id="13" lft="21" rght="22" title="roles_25" description="" />
+    <phprbac_roles id="14" lft="25" rght="30" title="roles_33" description="" />
+    <phprbac_roles id="15" lft="26" rght="29" title="roles_34" description="" />
+    <phprbac_roles id="16" lft="27" rght="28" title="roles_35" description="" />
+</dataset>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <table name="phprbac_permissions">
+        <column>id</column>
+        <column>lft</column>
+        <column>rght</column>
+        <column>title</column>
+        <column>description</column>
+        <row>
+            <value>1</value>
+            <value>0</value>
+            <value>1</value>
+            <value>root</value>
+            <value>root</value>
+        </row>
+    </table>
+    <table name="phprbac_rolepermissions">
+        <column>role_id</column>
+        <column>permission_id</column>
+        <column>assignment_date</column>
+        <row>
+            <value>1</value>
+            <value>1</value>
+            <value>1376789692</value>
+        </row>
+    </table>
+    <table name="phprbac_roles">
+        <column>id</column>
+        <column>lft</column>
+        <column>rght</column>
+        <column>title</column>
+        <column>description</column>
+        <row>
+            <value>1</value>
+            <value>0</value>
+            <value>1</value>
+            <value>root</value>
+            <value>root</value>
+        </row>
+    </table>
+    <table name="phprbac_userroles">
+        <column>user_id</column>
+        <column>role_id</column>
+        <column>assignment_date</column>
+        <row>
+            <value>1</value>
+            <value>1</value>
+            <value>1376789694</value>
+        </row>
+    </table>
+</dataset>

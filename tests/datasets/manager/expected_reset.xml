@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<phprbac_permissions id="1" lft="0" rght="1" title="root" description="root" />
+    <phprbac_rolepermissions role_id="1" permission_id="1" />
+    <phprbac_roles id="1" lft="0" rght="1" title="root" description="root" />
+    <phprbac_userroles user_id="1" role_id="1" />
+</dataset>

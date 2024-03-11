@@ -31,7 +31,7 @@ class FullNestedSet extends BaseNestedSet implements ExtendedNestedSet {
               LIMIT 1";
     array_unshift($args, $query);
     $res = call_user_func_array([Jf::class, 'sql'], $args);
-    return ($res) ?$res[0]['id'] : null;
+    return ($res) ? (int) $res[0]['id'] : null;
   }
 
   /**

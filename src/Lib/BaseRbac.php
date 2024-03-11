@@ -84,7 +84,7 @@ abstract class BaseRbac extends Base {
    *
    * @throws Exception
    */
-  public function returnId(?string $entity = null) {
+  public function returnId(?string $entity = null): ?int {
     if (is_null($entity)) {
       return null;
     }
@@ -102,7 +102,7 @@ abstract class BaseRbac extends Base {
    * @throws Exception
    * @todo this has a limit of 1000 characters on $path
    **/
-  public function pathId(string $path) {
+  public function pathId(string $path): ?int {
     $path = "root" . $path;
 
     if ($path[strlen($path) - 1] == "/") {
@@ -128,7 +128,7 @@ abstract class BaseRbac extends Base {
 				            HAVING path = ?", $parts[count($parts) - 1], $path);
 
     if ($res) {
-      return $res[0]['id'];
+      return (int) $res[0]['id'];
     }
     return null;
   }
@@ -228,7 +228,7 @@ abstract class BaseRbac extends Base {
   /**
    * Return depth of a node
    **/
-  public function depth(int $id) {
+  public function depth(int $id): int {
     return $this->{$this->type()}->depthConditional("id = ?", $id);
   }
 

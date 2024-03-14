@@ -49,6 +49,14 @@ class RbacUserManager extends Base {
 
     $roleID = $this->getRoleId($role);
 
+    $res = Jf::sql("SELECT user_id 
+                    FROM {$this->tablePrefix()}userroles 
+                    WHERE user_id = ? AND role_id = ? 
+                    LIMIT 1", $userID, $roleID);
+    if ($res !== null) {
+      return true;
+    }
+
     $res = Jf::sql("INSERT INTO {$this->tablePrefix()}userroles (user_id, role_id, assignment_date)
 				            VALUES (?, ?, ?)", $userID, $roleID, Jf::time());
     return $res >= 1;

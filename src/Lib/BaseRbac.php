@@ -278,6 +278,14 @@ abstract class BaseRbac extends Base {
     $roleID = $this->getRoleId($role);
     $permissionID = $this->getPermissionId($permission);
 
+    $res = Jf::sql("SELECT role_id 
+                    FROM {$this->tablePrefix()}rolepermissions 
+                    WHERE role_id = ? AND permission_id = ? 
+                    LIMIT 1", $roleID, $permissionID);
+    if ($res !== null) {
+      return true;
+    }
+
     return Jf::sql("INSERT INTO {$this->tablePrefix()}rolepermissions (role_id, permission_id, assignment_date)
 	                  VALUES (?, ?, ?)", $roleID, $permissionID, Jf::time()) >= 1;
   }

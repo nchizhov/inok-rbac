@@ -48,6 +48,32 @@ class RbacUsersTest extends RbacSetup {
   }
 
   /**
+   * @throws RbacUserNotProvidedException
+   */
+  public function testUsersAssignWithIdDouble(): void {
+    $roleId = self::$rbac->roles->add('roles_1', 'roles Description 1');
+
+    self::$rbac->users->assign($roleId, 5);
+    self::$rbac->users->assign($roleId, 5);
+
+    $dataSet = $this->getConnection()->createDataSet();
+
+    $filterDataSet = new Filter($dataSet);
+    $filterDataSet->addIncludeTables([
+      self::$rbac->users->tablePrefix() . 'userroles',
+    ]);
+
+    $filterDataSet->setExcludeColumnsForTable(
+      self::$rbac->users->tablePrefix() . 'userroles',
+      ['assignment_date']
+    );
+
+    $expectedDataSet = $this->createFlatXmlDataSet(self::$datasetPath . 'users/expected_assign_with_id.xml');
+
+    $this->assertDataSetsEqual($expectedDataSet, $filterDataSet);
+  }
+
+  /**
    * @throws Exception
    */
   public function testUsersAssignWithPath(): void {

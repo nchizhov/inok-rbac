@@ -484,7 +484,7 @@ class RbacBase extends RbacSetup {
 
     $pathId = $this->instance()->pathId('/' . $this->type() . '_1/' . $this->type() . '_2');
 
-    $this->assertSame('3', $pathId);
+    $this->assertSame(3, $pathId);
   }
 
   /**
@@ -509,7 +509,7 @@ class RbacBase extends RbacSetup {
 
     $pathId = $this->instance()->pathId("/first_depth0/first_depth1/first_depth2/first_depth3/first_depth4/first_depth5/first_depth6/first_depth7/first_depth8/first_depth9/first_depth10/final_109");
 
-    $this->assertSame('13', $pathId);
+    $this->assertSame(13, $pathId);
   }
 
   /**
@@ -521,7 +521,7 @@ class RbacBase extends RbacSetup {
 
     $pathId = $this->instance()->pathId("/second_depth0/second_depth1/second_depth2/second_depth3/second_depth4/second_depth5/second_depth6/second_depth7/second_depth8/second_depth9/second_depth10/second_depth11/second_depth12/second_depth13/second_depth14/second_depth15/second_depth16/second_depth17/second_depth18/second_depth19/second_depth20/second_depth21/second_depth22/second_depth23/second_depth24/second_depth25/second_depth26/second_depth27/second_depth28/second_depth29/second_depth30/second_depth31/second_depth32/second_depth33/second_depth34/second_depth35/second_depth36/second_depth37/second_depth38/second_depth39/second_depth40/second_depth41/second_depth42/second_depth43/second_depth44/second_depth45/second_depth46/second_depth47/second_depth48/second_depth49/second_depth50/second_depth51/second_depth52/second_depth53/second_depth54/second_depth55/second_depth56/second_depth57/second_depth58/second_depth59/second_depth60/second_depth61/second_depth62/second_depth63/second_depth64/second_depth65/second_depth66/second_depth67/second_depth68/second_depth69/second_depth70/second_depth71/second_depth72/second_depth73/second_depth74/second_depth75/second_depth76/second_depth77/second_depth78/second_depth79/second_depth80/second_depth81/second_depth82/second_depth83/second_depth84/second_depth85/second_depth86/second_depth87/second_depth88/second_depth89/second_depth90/second_depth91/second_depth92/second_depth93/second_depth94/second_depth95/second_depth96/second_depth97/second_depth98/second_depth99/second_depth100/second_depth101/second_depth102/second_depth103/second_depth104/second_depth105/second_depth106/second_depth107/second_depth108/second_depth109/final_109");
 
-    $this->assertSame('124', $pathId);
+    $this->assertSame(124, $pathId);
   }
 
   /*
@@ -706,6 +706,28 @@ class RbacBase extends RbacSetup {
     $permId = self::$rbac->permissions->add('permissions_1', 'permissions Description 1');
     $roleId = self::$rbac->roles->add('roles_1', 'roles Description 1');
 
+    $this->instance()->assign($roleId, $permId);
+
+    $dataSet = $this->getConnection()->createDataSet();
+
+    $filterDataSet = new Filter($dataSet);
+    $filterDataSet->addExcludeTables([$this->instance()->tablePrefix() . 'userroles']);
+
+    $filterDataSet->setExcludeColumnsForTable(
+      $this->instance()->tablePrefix() . 'rolepermissions',
+      ['assignment_date']
+    );
+
+    $expectedDataSet = $this->createFlatXmlDataSet(self::$datasetPath . 'base/expected_assign_' . $this->type() . '.xml');
+
+    $this->assertDataSetsEqual($expectedDataSet, $filterDataSet);
+  }
+
+  public function testAssignWithIdDouble(): void {
+    $permId = self::$rbac->permissions->add('permissions_1', 'permissions Description 1');
+    $roleId = self::$rbac->roles->add('roles_1', 'roles Description 1');
+
+    $this->instance()->assign($roleId, $permId);
     $this->instance()->assign($roleId, $permId);
 
     $dataSet = $this->getConnection()->createDataSet();

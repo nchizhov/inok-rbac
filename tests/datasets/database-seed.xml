@@ -43,7 +43,7 @@
         <column>role_id</column>
         <column>assignment_date</column>
         <row>
-            <value>1</value>
+            <value>0</value>
             <value>1</value>
             <value>1376789694</value>
         </row>

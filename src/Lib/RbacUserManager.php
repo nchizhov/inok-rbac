@@ -138,7 +138,7 @@ class RbacUserManager extends Base {
     } else {
       throw new Exception("Rbac can not reset table on this type of database: ".$adapter);
     }
-    $this->assign("root", 1 /* root user */);
+    $this->assign("root", 0 /* root user */);
     return $res;
   }
 }

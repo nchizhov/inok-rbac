@@ -39,7 +39,7 @@ class RbacSetupSqlite implements DbSetup {
     $db->exec("INSERT INTO `".Jf::tablePrefix()."roles` (`id`, `lft`, `rght`, `title`, `description`)
                   VALUES (1, 0, 1, 'root', 'root')");
     $db->exec("INSERT INTO `".Jf::tablePrefix()."userroles` (`user_id`, `role_id`, `assignment_date`)
-                  VALUES (1, 1, strftime('%s', 'now'))");
+                  VALUES (0, 1, strftime('%s', 'now'))");
   }
 
   public static function getTables(): array {
